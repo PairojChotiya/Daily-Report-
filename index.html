@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="th">
 <head>
@@ -1485,11 +1486,8 @@ textarea{
     <div class="hero-description">
 
       รายงานประจำวันหน้างาน
-
       <span style="color:#93c5fd;">•</span>
-
       บันทึกข้อมูล
-
       <span style="color:#93c5fd;">•</span>
 
       <span style="color:#60c5fa;">
@@ -1497,7 +1495,6 @@ textarea{
       </span>
 
       <span style="color:#93c5fd;">•</span>
-
       ส่งเข้าสู่ระบบ
 
     </div>
@@ -1671,10 +1668,7 @@ textarea{
 
 <form id="f">
 
-<section
-  class="card"
-  id="projectSection"
->
+<section class="card" id="projectSection">
 
   <div class="card-head">
 
@@ -1684,13 +1678,9 @@ textarea{
 
     <div class="card-title">
 
-      <h2>
-        ข้อมูลโครงการ
-      </h2>
+      <h2>ข้อมูลโครงการ</h2>
 
-      <p>
-        Project Information
-      </p>
+      <p>Project Information</p>
 
     </div>
 
@@ -1866,10 +1856,7 @@ textarea{
 </section>
 
 
-<section
-  class="card"
-  id="activitySection"
->
+<section class="card" id="activitySection">
 
   <div class="card-head">
 
@@ -1879,13 +1866,9 @@ textarea{
 
     <div class="card-title">
 
-      <h2>
-        งานที่ดำเนินการวันนี้
-      </h2>
+      <h2>งานที่ดำเนินการวันนี้</h2>
 
-      <p>
-        Today's Activities
-      </p>
+      <p>Today's Activities</p>
 
     </div>
 
@@ -1906,10 +1889,7 @@ textarea{
 </section>
 
 
-<section
-  class="card"
-  id="manpowerSection"
->
+<section class="card" id="manpowerSection">
 
   <div class="card-head">
 
@@ -1919,13 +1899,9 @@ textarea{
 
     <div class="card-title">
 
-      <h2>
-        กำลังคน
-      </h2>
+      <h2>กำลังคน</h2>
 
-      <p>
-        Manpower Summary
-      </p>
+      <p>Manpower Summary</p>
 
     </div>
 
@@ -1940,9 +1916,7 @@ textarea{
         👨‍💼
       </div>
 
-      <label>
-        Foreman
-      </label>
+      <label>Foreman</label>
 
       <input
         type="number"
@@ -1960,9 +1934,7 @@ textarea{
         👷
       </div>
 
-      <label>
-        ช่าง
-      </label>
+      <label>ช่าง</label>
 
       <input
         type="number"
@@ -1980,9 +1952,7 @@ textarea{
         🦺
       </div>
 
-      <label>
-        กรรมกร
-      </label>
+      <label>กรรมกร</label>
 
       <input
         type="number"
@@ -2000,9 +1970,7 @@ textarea{
         👤
       </div>
 
-      <label>
-        อื่น ๆ
-      </label>
+      <label>อื่น ๆ</label>
 
       <input
         type="number"
@@ -2018,10 +1986,7 @@ textarea{
 </section>
 
 
-<section
-  class="card"
-  id="equipmentSection"
->
+<section class="card" id="equipmentSection">
 
   <div class="card-head">
 
@@ -2031,13 +1996,9 @@ textarea{
 
     <div class="card-title">
 
-      <h2>
-        เครื่องจักร / อุปกรณ์
-      </h2>
+      <h2>เครื่องจักร / อุปกรณ์</h2>
 
-      <p>
-        Equipment & Machinery
-      </p>
+      <p>Equipment & Machinery</p>
 
     </div>
 
@@ -2058,10 +2019,7 @@ textarea{
 </section>
 
 
-<section
-  class="card"
-  id="photoSection"
->
+<section class="card" id="photoSection">
 
   <div class="card-head">
 
@@ -2071,13 +2029,9 @@ textarea{
 
     <div class="card-title">
 
-      <h2>
-        รูปภาพหน้างาน
-      </h2>
+      <h2>รูปภาพหน้างาน</h2>
 
-      <p>
-        Site Progress Photos
-      </p>
+      <p>Site Progress Photos</p>
 
     </div>
 
@@ -2129,10 +2083,7 @@ textarea{
 </section>
 
 
-<section
-  class="card"
-  id="summarySection"
->
+<section class="card" id="summarySection">
 
   <div class="card-head">
 
@@ -2142,13 +2093,9 @@ textarea{
 
     <div class="card-title">
 
-      <h2>
-        สรุปหน้างาน
-      </h2>
+      <h2>สรุปหน้างาน</h2>
 
-      <p>
-        Issues, Safety & Remarks
-      </p>
+      <p>Issues, Safety & Remarks</p>
 
     </div>
 
@@ -2270,8 +2217,25 @@ const equipmentList =
    N8N PRODUCTION WEBHOOK
 ===================================================== */
 
+/*
+  IMPORTANT
+
+  ใช้ Production Webhook
+
+  ห้ามใช้:
+
+  /webhook-test/Daily-report
+
+  เพราะ webhook-test ใช้เฉพาะตอนกด Execute workflow
+  ใน n8n
+
+  สำหรับใช้งานจริงต้องใช้:
+
+  /webhook/Daily-report
+*/
+
 const URL_N8N =
-  'https://pairojtta123.app.n8n.cloud/webhook-test/Daily-report';
+  'https://pairojtta123.app.n8n.cloud/webhook/Daily-report';
 
 
 /* =====================================================
@@ -2565,10 +2529,6 @@ addAct();
 let selectedFiles = [];
 
 
-/*
-  ตรวจว่ารูปซ้ำหรือไม่
-*/
-
 function isDuplicateFile(file){
 
   return selectedFiles.some(
@@ -2585,10 +2545,6 @@ function isDuplicateFile(file){
 
 }
 
-
-/*
-  เลือกรูป
-*/
 
 photos.addEventListener(
   'change',
@@ -2619,12 +2575,6 @@ photos.addEventListener(
       }
     );
 
-    /*
-      สำคัญ:
-      เคลียร์ value เพื่อให้สามารถ
-      เลือกรูปเดิมซ้ำในครั้งต่อไปได้
-    */
-
     this.value = '';
 
     renderPhotos();
@@ -2632,10 +2582,6 @@ photos.addEventListener(
   }
 );
 
-
-/*
-  แสดง Preview
-*/
 
 function renderPhotos(){
 
@@ -2720,21 +2666,7 @@ function renderPhotos(){
    IMAGE COMPRESSION
 ===================================================== */
 
-/*
-  ลดขนาดรูปก่อนส่ง n8n
-
-  MAX = 1600 px
-  QUALITY = 0.75
-
-  ช่วยลดปัญหา HTTP 413
-*/
-
 async function compressImage(file){
-
-  /*
-    ถ้าไฟล์เล็กกว่า 1.5 MB
-    ไม่ต้องบีบอัด
-  */
 
   if(
     file.size <=
@@ -2773,10 +2705,6 @@ async function compressImage(file){
           let height =
             img.height;
 
-
-          /*
-            ลดขนาดตามด้านที่ยาวที่สุด
-          */
 
           if(
             width > MAX_SIZE ||
@@ -2903,11 +2831,6 @@ async function compressImage(file){
             objectUrl
           );
 
-          /*
-            ถ้าบีบไม่ได้
-            ให้ส่งไฟล์เดิม
-          */
-
           resolve(file);
 
         };
@@ -2945,11 +2868,9 @@ form.addEventListener(
 
     try{
 
-      /*
-        ===============================================
-        1. VALIDATE
-        ===============================================
-      */
+      /* ===============================================
+         1. VALIDATE
+      =============================================== */
 
       if(
         !reportDate.value
@@ -2962,35 +2883,17 @@ form.addEventListener(
       }
 
 
-      /*
-        ===============================================
-        2. CREATE FORM DATA
-        ===============================================
-
-        สำคัญมาก:
-
-        ห้ามใช้
-
-        new FormData(form)
-
-        เพราะ input photos จะถูกใส่อัตโนมัติ
-        แล้วเรา append selectedFiles อีกครั้ง
-
-        ทำให้ 1 รูปกลายเป็น 2 รูป
-
-        ดังนั้นใช้ FormData เปล่า
-        แล้วใส่เฉพาะ field ที่ต้องการ
-      */
+      /* ===============================================
+         2. FORM DATA
+      =============================================== */
 
       const fd =
         new FormData();
 
 
-      /*
-        ===============================================
-        3. BASIC FORM FIELDS
-        ===============================================
-      */
+      /* ===============================================
+         3. BASIC FORM FIELDS
+      =============================================== */
 
       Array.from(
         form.elements
@@ -3006,10 +2909,6 @@ form.addEventListener(
           }
 
 
-          /*
-            ไม่เอา input type=file
-          */
-
           if(
             element.type === 'file'
           ){
@@ -3018,11 +2917,6 @@ form.addEventListener(
 
           }
 
-
-          /*
-            ไม่เอา manpower
-            เพราะจะส่งเป็น JSON ด้านล่าง
-          */
 
           if(
             [
@@ -3039,11 +2933,6 @@ form.addEventListener(
 
           }
 
-
-          /*
-            ไม่เอา activities/equipment
-            เพราะจะสร้าง JSON ใหม่
-          */
 
           if(
             [
@@ -3068,11 +2957,9 @@ form.addEventListener(
       );
 
 
-      /*
-        ===============================================
-        4. ACTIVITIES
-        ===============================================
-      */
+      /* ===============================================
+         4. ACTIVITIES
+      =============================================== */
 
       const activities =
         Array.from(
@@ -3131,11 +3018,9 @@ form.addEventListener(
       );
 
 
-      /*
-        ===============================================
-        5. MANPOWER
-        ===============================================
-      */
+      /* ===============================================
+         5. MANPOWER
+      =============================================== */
 
       const manpower = {
 
@@ -3170,11 +3055,9 @@ form.addEventListener(
       );
 
 
-      /*
-        ===============================================
-        6. EQUIPMENT
-        ===============================================
-      */
+      /* ===============================================
+         6. EQUIPMENT
+      =============================================== */
 
       const equipment =
         Array.from(
@@ -3221,11 +3104,9 @@ form.addEventListener(
       );
 
 
-      /*
-        ===============================================
-        7. COMPRESS PHOTOS
-        ===============================================
-      */
+      /* ===============================================
+         7. COMPRESS PHOTOS
+      =============================================== */
 
       const uploadFiles = [];
 
@@ -3257,11 +3138,9 @@ form.addEventListener(
       }
 
 
-      /*
-        ===============================================
-        8. APPEND PHOTOS ONLY ONCE
-        ===============================================
-      */
+      /* ===============================================
+         8. APPEND PHOTOS
+      =============================================== */
 
       uploadFiles.forEach(
         function(file){
@@ -3276,11 +3155,9 @@ form.addEventListener(
       );
 
 
-      /*
-        ===============================================
-        9. SEND TO N8N
-        ===============================================
-      */
+      /* ===============================================
+         9. SEND TO N8N
+      =============================================== */
 
       submitBtn.textContent =
         '🚀 กำลังส่งเข้า n8n...';
@@ -3322,11 +3199,9 @@ form.addEventListener(
       }
 
 
-      /*
-        ===============================================
-        10. ERROR
-        ===============================================
-      */
+      /* ===============================================
+         10. HTTP ERROR
+      =============================================== */
 
       if(
         !response.ok
@@ -3343,11 +3218,9 @@ form.addEventListener(
       }
 
 
-      /*
-        ===============================================
-        11. SUCCESS
-        ===============================================
-      */
+      /* ===============================================
+         11. SUCCESS
+      =============================================== */
 
       msg.style.color =
         '#16a34a';
@@ -3362,11 +3235,9 @@ form.addEventListener(
         );
 
 
-      /*
-        ===============================================
-        12. RESET FORM
-        ===============================================
-      */
+      /* ===============================================
+         12. RESET
+      =============================================== */
 
       form.reset();
 
@@ -3391,10 +3262,6 @@ form.addEventListener(
       addEquipment();
 
 
-      /*
-        วันที่กลับเป็นวันนี้
-      */
-
       const resetTodayISO =
         getTodayISO();
 
@@ -3418,13 +3285,36 @@ form.addEventListener(
         '#ef4444';
 
 
-      msg.textContent =
-        '❌ ส่งไม่สำเร็จ: '
-        +
-        (
-          error?.message ||
-          'เกิดข้อผิดพลาด'
-        );
+      /*
+        กรณี Failed to fetch
+        มักเกิดจาก:
+
+        1. n8n workflow ยังไม่ Active
+        2. URL webhook ไม่ถูกต้อง
+        3. CORS
+        4. เปิด webhook-test แทน webhook
+        5. Browser เชื่อมต่อ n8n ไม่ได้
+      */
+
+      if(
+        error?.message ===
+        'Failed to fetch'
+      ){
+
+        msg.textContent =
+          '❌ เชื่อมต่อ n8n ไม่สำเร็จ — กรุณาตรวจสอบว่า Workflow เปิดใช้งานแล้ว และใช้ Production Webhook';
+
+      }else{
+
+        msg.textContent =
+          '❌ ส่งไม่สำเร็จ: '
+          +
+          (
+            error?.message ||
+            'เกิดข้อผิดพลาด'
+          );
+
+      }
 
 
     }finally{
@@ -3444,3 +3334,4 @@ form.addEventListener(
 
 </body>
 </html>
+```
