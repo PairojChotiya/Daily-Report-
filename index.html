@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="th">
 <head>
@@ -713,6 +712,53 @@ textarea{
 }
 
 /* =====================================================
+   DATE PICKER
+===================================================== */
+
+.date-picker-wrap{
+  position:relative;
+  width:100%;
+}
+
+#reportDateDisplay{
+  width:100%;
+  background:#fff;
+  font-weight:700;
+  color:var(--blue);
+  cursor:pointer;
+  padding-right:45px;
+}
+
+/*
+  IMPORTANT:
+  ตัว date จริงจะโปร่งใส
+  แต่ยังคงอยู่เหนือช่อง
+  เพื่อให้มือถือรับการแตะโดยตรง
+*/
+
+#reportDatePicker{
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  opacity:0;
+
+  cursor:pointer;
+
+  z-index:10;
+
+  border:0;
+  padding:0;
+  margin:0;
+
+  -webkit-appearance:auto;
+  appearance:auto;
+}
+
+/* =====================================================
    ACTIVITIES
 ===================================================== */
 
@@ -970,7 +1016,6 @@ textarea{
   margin-top:5px;
 }
 
-#reportDatePicker,
 #photos{
   display:none;
 }
@@ -1143,16 +1188,6 @@ textarea{
   color:#94a3b8;
 
   font-size:12px;
-}
-
-#reportDateDisplay{
-  background:#fff;
-
-  font-weight:700;
-
-  color:var(--blue);
-
-  cursor:pointer;
 }
 
 @keyframes fadeUp{
@@ -1747,20 +1782,23 @@ textarea{
         <span class="required">*</span>
       </label>
 
-      <input
-        type="text"
-        id="reportDateDisplay"
-        placeholder="วัน/เดือน/ปี"
-        readonly
-        required
-      >
+      <div class="date-picker-wrap">
 
-      <input
-        type="date"
-        id="reportDatePicker"
-        tabindex="-1"
-        aria-hidden="true"
-      >
+        <input
+          type="text"
+          id="reportDateDisplay"
+          placeholder="วัน/เดือน/ปี"
+          readonly
+          required
+        >
+
+        <input
+          type="date"
+          id="reportDatePicker"
+          aria-label="เลือกวันที่รายงาน"
+        >
+
+      </div>
 
       <input
         type="hidden"
@@ -2217,23 +2255,6 @@ const equipmentList =
    N8N PRODUCTION WEBHOOK
 ===================================================== */
 
-/*
-  IMPORTANT
-
-  ใช้ Production Webhook
-
-  ห้ามใช้:
-
-  /webhook-test/Daily-report
-
-  เพราะ webhook-test ใช้เฉพาะตอนกด Execute workflow
-  ใน n8n
-
-  สำหรับใช้งานจริงต้องใช้:
-
-  /webhook/Daily-report
-*/
-
 const URL_N8N =
   'https://pairojtta123.app.n8n.cloud/webhook/Daily-report';
 
@@ -2322,6 +2343,10 @@ function setReportDate(dateValue){
 }
 
 
+/*
+  ตั้งค่าวันปัจจุบัน
+*/
+
 const todayISO =
   getTodayISO();
 
@@ -2333,34 +2358,18 @@ setReportDate(
 );
 
 
-reportDateDisplay.addEventListener(
-  'click',
-  function(){
+/*
+  IMPORTANT
 
-    try{
+  ไม่ใช้ showPicker()
+  ไม่ใช้ click()
+  เพราะมือถือบาง browser
+  ไม่อนุญาตให้เปิด date picker
+  จาก JavaScript
 
-      if(
-        typeof reportDatePicker.showPicker ===
-        'function'
-      ){
-
-        reportDatePicker.showPicker();
-
-      }else{
-
-        reportDatePicker.click();
-
-      }
-
-    }catch(error){
-
-      reportDatePicker.click();
-
-    }
-
-  }
-);
-
+  ให้ input type="date"
+  รับการแตะโดยตรงแทน
+*/
 
 reportDatePicker.addEventListener(
   'change',
@@ -3285,17 +3294,6 @@ form.addEventListener(
         '#ef4444';
 
 
-      /*
-        กรณี Failed to fetch
-        มักเกิดจาก:
-
-        1. n8n workflow ยังไม่ Active
-        2. URL webhook ไม่ถูกต้อง
-        3. CORS
-        4. เปิด webhook-test แทน webhook
-        5. Browser เชื่อมต่อ n8n ไม่ได้
-      */
-
       if(
         error?.message ===
         'Failed to fetch'
@@ -3334,4 +3332,3 @@ form.addEventListener(
 
 </body>
 </html>
-```
